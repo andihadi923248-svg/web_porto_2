@@ -1,0 +1,432 @@
+/* ==========================================================================
+   CREVO LAB — Creative Developer & Agency Portfolio
+   Design Inspired by Crevo Lab (Dribbble by bikashux)
+   Aesthetic: Ultra-Clean Dark Mode, Acid Lime (#D4FF00), Crisp Typography
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-primary: #0A0A0C;
+  --bg-secondary: #111116;
+  --bg-card: #14141B;
+  --bg-card-hover: #1A1A24;
+  --border-subtle: #23232E;
+  --border-active: #38384A;
+
+  /* Crevo Lab Signature Accent */
+  --accent-lime: #D4FF00;
+  --accent-lime-muted: rgba(212, 255, 0, 0.12);
+  --accent-lime-glow: rgba(212, 255, 0, 0.25);
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+  selection-background-color: #D4FF00;
+  selection-color: #0A0A0C;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: 'Syne', 'Space Grotesk', sans-serif;
+}
+
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0C;
+}
+::-webkit-scrollbar-thumb {
+  background: #23232E;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4FF00;
+}
+
+/* Scroll Progress Bar at the Top */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #D4FF00, #A3E635, #22D3EE);
+  z-index: 100;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 12px rgba(212, 255, 0, 0.6);
+}
+
+/* Subtle Grid Background Pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Crevo Lab Card Design */
+.crevo-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crevo-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-active);
+  transform: translateY(-4px);
+}
+
+/* Crevo Lab Accent Elements */
+.text-lime {
+  color: var(--accent-lime);
+}
+
+.bg-lime {
+  background-color: var(--accent-lime);
+}
+
+.border-lime {
+  border-color: var(--accent-lime);
+}
+
+.btn-crevo-primary {
+  background-color: var(--accent-lime);
+  color: #0A0A0C;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.btn-crevo-primary:hover {
+  background-color: #E2FF4D;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(212, 255, 0, 0.35);
+}
+
+.btn-crevo-secondary {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: #FFFFFF;
+  transition: all 0.25s ease;
+}
+
+.btn-crevo-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-active);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* Infinite Marquee Ticker */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Editorial Photo Styling */
+.editorial-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.editorial-photo img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.editorial-photo:hover img {
+  transform: scale(1.03);
+}
+
+/* Clean Tag Pills */
+.tag-pill {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.tag-pill:hover {
+  border-color: var(--border-active);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   DYNAMIC SCROLL ENTRANCE ANIMATION SYSTEM
+   Diverse, High-End, Creative Reveals on Scroll
+   ========================================================================== */
+
+/* Base initial hidden state */
+.scroll-reveal {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition-duration: 0.85s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: transform, opacity, filter, border-color, box-shadow;
+}
+
+/* 1. Slide Up with Perspective */
+.scroll-fade-up {
+  transform: translateY(45px);
+}
+
+/* 2. Slide from Left with Soft Blur */
+.scroll-fade-left {
+  transform: translateX(-55px);
+  filter: blur(4px);
+}
+
+/* 3. Slide from Right with Soft Blur */
+.scroll-fade-right {
+  transform: translateX(55px);
+  filter: blur(4px);
+}
+
+/* 4. Dramatic Scale-Up (Bento & Hero Cards) */
+.scroll-scale-up {
+  transform: scale(0.88) translateY(30px);
+}
+
+/* 5. 3D Tilt Card (Crevo Lab Perspective Cards) */
+.scroll-tilt-card {
+  transform: perspective(900px) rotateX(12deg) translateY(50px);
+  transform-origin: center bottom;
+}
+
+/* 6. Bouncy Pop for Pills, Badges & Numbers */
+.scroll-pop-badge {
+  transform: translateY(-20px) scale(0.82);
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 7. Active State When Scrolled into View */
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translate(0) scale(1) rotate(0) rotateX(0);
+  filter: blur(0);
+}
+
+/* Stagger Delays for Grid Elements */
+.scroll-stagger-1 { transition-delay: 80ms; }
+.scroll-stagger-2 { transition-delay: 160ms; }
+.scroll-stagger-3 { transition-delay: 240ms; }
+.scroll-stagger-4 { transition-delay: 320ms; }
+.scroll-stagger-5 { transition-delay: 400ms; }
+
+/* Subtle Glow Pulse when Card is Revealed */
+.card-revealed-glow.is-revealed {
+  box-shadow: 0 10px 30px -10px rgba(212, 255, 0, 0.15);
+}
+
+/* Floating Scroll-to-Top Button */
+#scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background-color: #14141B;
+  border: 1px solid #23232E;
+  color: #D4FF00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 45;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+#scroll-top-btn:hover {
+  background-color: #D4FF00;
+  color: #0A0A0C;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 12px 25px -4px rgba(212, 255, 0, 0.35);
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   CREATIVE CINEMATIC SCROLL — refined motion presets
+   Elements are assigned these classes by app.js when the page loads.
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition-property: opacity, transform, filter, box-shadow;
+  transition-duration: 900ms;
+  transition-timing-function: cubic-bezier(.16, 1, .3, 1);
+}
+
+.scroll-fade-up { transform: translate3d(0, 58px, 0); filter: blur(5px); }
+.scroll-fade-left { transform: translate3d(-72px, 12px, 0); filter: blur(5px); }
+.scroll-fade-right { transform: translate3d(72px, 12px, 0); filter: blur(5px); }
+.scroll-scale-up { transform: translate3d(0, 34px, 0) scale(.86); filter: blur(3px); }
+.scroll-tilt-card {
+  transform: perspective(1000px) rotateX(13deg) translate3d(0, 55px, 0) scale(.96);
+  transform-origin: center bottom;
+  filter: blur(3px);
+}
+.scroll-pop-badge { transform: translate3d(0, -22px, 0) scale(.78); filter: blur(2px); }
+.scroll-photo-reveal {
+  transform: perspective(1200px) rotateY(-10deg) translate3d(48px, 24px, 0) scale(.91);
+  clip-path: inset(8% 5% 8% 5% round 28px);
+  filter: blur(5px) saturate(.75);
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1) rotate(0) rotateX(0) rotateY(0);
+  filter: blur(0) saturate(1);
+  clip-path: inset(0 0 0 0 round 0);
+}
+
+/* A little extra depth for project screenshots after they settle in. */
+.project-card.scroll-reveal.is-revealed {
+  box-shadow: 0 22px 65px -38px rgba(212, 255, 0, .28);
+}
+
+/* The existing hover interaction remains available after reveal. */
+.crevo-card.scroll-reveal.is-revealed:hover {
+  transition-delay: 0ms;
+}
+
+@media (max-width: 767px) {
+  .scroll-fade-left { transform: translate3d(-34px, 20px, 0); }
+  .scroll-fade-right { transform: translate3d(34px, 20px, 0); }
+  .scroll-photo-reveal { transform: translate3d(0, 38px, 0) scale(.94); }
+  .scroll-tilt-card { transform: translate3d(0, 42px, 0) scale(.97); }
+  .scroll-reveal { transition-duration: 720ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+}
+
+.hero-title-line { display: block; }
+
+
+/* Branded social profile links: always show recognizable platform logos. */
+.social-link {
+  min-width: 112px;
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border-radius: 16px;
+  color: #D4D4D8;
+  background: #0A0A0C;
+  border: 1px solid #23232E;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: color .28s ease, background-color .28s ease, border-color .28s ease, transform .28s cubic-bezier(.16,1,.3,1), box-shadow .28s ease;
+}
+.social-link svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+}
+.social-link:hover,
+.social-link:focus-visible {
+  color: #0A0A0C;
+  background: #D4FF00;
+  border-color: #D4FF00;
+  transform: translateY(-4px) scale(1.035);
+  box-shadow: 0 10px 28px -12px rgba(212,255,0,.75);
+  outline: none;
+}
+.social-link:active { transform: translateY(-1px) scale(.98); }
+@media (max-width: 480px) {
+  .social-link { min-width: 0; flex: 1 1 30%; padding-inline: 10px; gap: 7px; }
+}
+
+
+/* ==========================================================================
+   CINEMATIC PORTFOLIO EXPANSION — Tech rail, learning journey, case studies
+   ========================================================================== */
+.tech-logo-card{min-height:104px;padding:18px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1px solid #23232E;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));color:#A1A1AA;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.02em;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s,background .35s,color .35s,box-shadow .35s}
+.tech-logo-card:hover{transform:translateY(-7px);border-color:rgba(212,255,0,.65);background:rgba(212,255,0,.055);color:#fff;box-shadow:0 16px 38px -24px rgba(212,255,0,.6)}
+.tech-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;font:800 19px 'Space Grotesk',sans-serif;color:#0A0A0C;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.tech-mark svg{width:21px;height:21px}.html-mark{background:#E96228}.css-mark{background:#2878D0}.js-mark{background:#F0DB4F}.bs-mark{background:#7952B3;color:#fff}.git-mark{background:#E94E31}.ai-mark{background:#D4FF00}
+.journey-intro{background:radial-gradient(circle at 90% 5%,rgba(212,255,0,.12),transparent 36%),#14141B}
+.journey-track{position:relative;padding-left:8px}.journey-track:before{content:'';position:absolute;left:25px;top:20px;bottom:30px;width:1px;background:linear-gradient(to bottom,rgba(212,255,0,.7),rgba(255,255,255,.08))}
+.journey-item{position:relative;display:grid;grid-template-columns:52px 1fr;gap:20px;padding:0 0 38px}.journey-item:last-child{padding-bottom:0}.journey-node{z-index:1;width:36px;height:36px;display:grid;place-items:center;border:1px solid #3A3A45;border-radius:50%;background:#111116;color:#D4FF00;font:700 10px 'JetBrains Mono',monospace;box-shadow:0 0 0 7px #0A0A0C}.journey-node-current{background:#D4FF00;color:#0A0A0C;border-color:#D4FF00}.journey-node svg{width:16px;height:16px}.journey-kicker{font:10px 'JetBrains Mono',monospace;letter-spacing:.15em;color:#D4FF00}.journey-item h3{font:700 21px 'Space Grotesk',sans-serif;color:#fff;margin:7px 0}.journey-item p{font-size:13px;line-height:1.8;color:#A1A1AA;max-width:560px}
+.project-preview img{transition:transform .9s cubic-bezier(.16,1,.3,1),filter .7s}.project-preview:hover img{transform:scale(1.1) translateY(-5px);filter:brightness(.72) saturate(1.12)}
+.preview-caption{position:absolute;left:18px;right:18px;bottom:17px;display:flex;align-items:center;gap:9px;color:#D4FF00;font:10px 'JetBrains Mono',monospace;letter-spacing:.16em;opacity:0;transform:translateY(10px);transition:opacity .35s,transform .35s}.preview-caption svg{width:15px;height:15px}.project-preview:hover .preview-caption,.project-preview:focus-visible .preview-caption{opacity:1;transform:translateY(0)}
+.case-study-trigger{width:100%;display:flex;align-items:center;gap:10px;padding:13px 15px;border:1px solid #30303B;border-radius:13px;background:rgba(255,255,255,.025);color:#D4D4D8;font:600 11px 'JetBrains Mono',monospace;text-align:left;transition:all .3s}.case-study-trigger>svg{width:16px;height:16px;color:#D4FF00}.case-study-trigger:hover{border-color:#D4FF00;background:rgba(212,255,0,.08);color:#fff;transform:translateX(3px)}
+.case-modal{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}.case-modal.is-open{opacity:1;visibility:visible}.case-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px)}.case-modal-panel{position:relative;width:min(760px,100%);max-height:min(88vh,850px);overflow:auto;padding:34px;border:1px solid #343442;border-radius:26px;background:linear-gradient(145deg,#191922,#0D0D12 72%);box-shadow:0 30px 100px rgba(0,0,0,.65);transform:translateY(24px) scale(.97);transition:transform .4s cubic-bezier(.16,1,.3,1)}.case-modal.is-open .case-modal-panel{transform:translateY(0) scale(1)}.case-modal-close{position:absolute;top:20px;right:20px;width:38px;height:38px;display:grid;place-items:center;border:1px solid #343442;border-radius:50%;background:#111116;color:#fff;transition:all .25s}.case-modal-close:hover{background:#D4FF00;color:#0A0A0C;border-color:#D4FF00}.case-modal-close svg{width:18px;height:18px}.case-modal-kicker,.case-label{font:10px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#D4FF00}.case-modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.case-modal-grid>div{padding:18px;border:1px solid #292936;border-radius:16px;background:rgba(255,255,255,.025)}.case-modal-grid p{margin-top:9px;color:#A1A1AA;font-size:12px;line-height:1.8}.case-modal-panel a svg{width:15px;height:15px}
+@media(max-width:640px){.case-modal-panel{padding:26px 20px;border-radius:20px}.case-modal-grid{grid-template-columns:1fr}.journey-item{gap:13px}.journey-item h3{font-size:18px}.tech-logo-card{min-height:92px}}
+@media(prefers-reduced-motion:reduce){.tech-logo-card,.project-preview img,.preview-caption,.case-modal,.case-modal-panel,.case-study-trigger{transition:none!important}}
+
+body.modal-open{overflow:hidden}

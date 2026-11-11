@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andi Muhammad Hadi Pratama | Web Developer & Rekayasa Perangkat Lunak (RPL)</title>
+  <meta name="description" content="Portofolio resmi Andi Muhammad Hadi Pratama - Pengembang Web & Siswa Rekayasa Perangkat Lunak (RPL) dengan keahlian HTML, CSS, JavaScript, Bootstrap, dan AI.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crevo: {
+              black: '#0A0A0C',
+              dark: '#111116',
+              card: '#14141B',
+              border: '#23232E',
+              lime: '#D4FF00',
+              muted: '#71717A'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Crevo Lab Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#0A0A0C] text-slate-100 min-h-screen relative selection:bg-[#D4FF00] selection:text-[#0A0A0C] bg-grid-pattern">
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scroll-top-btn" aria-label="Kembali ke atas">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION (CREVO LAB MINIMALIST AGENCY BAR)
+       ========================================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0C]/90 backdrop-blur-xl border-b border-[#23232E] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-[#14141B] border border-[#23232E] flex items-center justify-center text-[#D4FF00] transition-colors group-hover:border-[#D4FF00]">
+          <span class="font-display font-black text-lg">H</span>
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-[#D4FF00] transition-colors">
+            HADI<span class="text-[#D4FF00]">.DEV</span>
+          </span>
+          <span class="block text-[10px] text-zinc-500 font-mono tracking-widest uppercase">
+            RPL & WEB DEVELOPER
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 bg-[#14141B] px-5 py-2 rounded-full border border-[#23232E]">
+        <a href="#hero" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Beranda</a>
+        <a href="#skills" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Keahlian</a>
+        <a href="#projects" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Proyek</a>
+        <a href="#journey" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Journey</a>
+        <a href="#process" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Alur Kerja</a>
+        <a href="#about" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Tentang Saya</a>
+        <a href="#contact" class="desktop-nav-link text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full text-zinc-400 hover:text-white transition-colors">Kontak</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#contact" class="btn-crevo-primary px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+          <span>Hubungi Saya</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-[#14141B] border border-[#23232E] text-zinc-300" aria-label="Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0E0E12] border-b border-[#23232E] px-6 py-5 space-y-3">
+      <a href="#hero" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Beranda</a>
+      <a href="#skills" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Keahlian & Stack</a>
+      <a href="#projects" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Portofolio Proyek</a>
+      <a href="#journey" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Learning Journey</a>
+      <a href="#process" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Alur Kerja</a>
+      <a href="#about" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Tentang Diri</a>
+      <a href="#contact" class="mobile-nav-link block py-2 text-sm text-zinc-300 hover:text-[#D4FF00]">Kontak</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-20">
+
+    <!-- ==========================================================================
+         HERO SECTION (CREVO LAB AGENCY EDITORIAL LAYOUT)
+         ========================================================================== -->
+    <section id="hero" class="min-h-[90vh] flex items-center px-4 sm:px-6 lg:px-8 py-16 relative">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Bold Typography & Personal Intro -->
+        <div class="lg:col-span-7 space-y-8 text-left">
+          
+          <!-- Availability Pill -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#14141B] border border-[#23232E]">
+            <span class="flex h-2.5 w-2.5 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4FF00] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D4FF00]"></span>
+            </span>
+            <span class="text-xs font-mono font-medium tracking-wider text-zinc-200 uppercase">
+              REKAYASA PERANGKAT LUNAK (RPL) &bull; WEB DEVELOPER
+            </span>
+          </div>
+
+          <!-- Bold Display Headline -->
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
+            <span class="hero-title-line">ANDI MUHAMMAD</span>
+            <span class="hero-title-line">HADI <span class="text-[#D4FF00]">PRATAMA.</span></span>
+          </h1>
+
+          <!-- Typewriter Role Subtitle -->
+          <div class="flex items-center gap-2 text-lg sm:text-xl text-zinc-300 font-mono">
+            <span class="text-[#D4FF00] font-bold">/ /</span>
+            <span id="typewriter-text" class="text-white font-medium border-r-2 border-[#D4FF00] pr-1"></span>
+          </div>
+
+          <!-- Description -->
+          <p class="max-w-xl text-zinc-400 text-sm sm:text-base leading-relaxed">
+            Seorang pengembang web dari jurusan <strong>Rekayasa Perangkat Lunak (RPL)</strong> yang berdedikasi membangun aplikasi web modern, responsif, dan rapi. Menguasai fondasi 
+            <span class="text-white font-semibold">HTML, CSS, JavaScript, Bootstrap</span>, serta terus mengeksplorasi integrasi <span class="text-[#D4FF00] font-semibold">Artificial Intelligence (AI)</span>.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#projects" class="btn-crevo-primary px-8 py-4 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg">
+              <span>Lihat Proyek Saya</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+
+            <button class="copy-email-btn btn-crevo-secondary px-7 py-4 rounded-full text-xs font-semibold tracking-wider flex items-center gap-2" data-email="andi.hadi923248@gmail.com">
+              <i data-lucide="copy" class="w-4 h-4 text-[#D4FF00]"></i>
+              <span>Salin Email</span>
+            </button>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="pt-8 border-t border-[#23232E] grid grid-cols-3 gap-6 max-w-lg">
+            <div>
+              <div class="font-display text-3xl sm:text-4xl font-extrabold text-white flex items-center">
+                <span class="counter-val" data-target="3">0</span><span>+</span>
+              </div>
+              <p class="text-xs text-zinc-500 font-mono uppercase mt-1">Core Projects</p>
+            </div>
+            <div>
+              <div class="font-display text-3xl sm:text-4xl font-extrabold text-[#D4FF00] flex items-center">
+                <span class="counter-val" data-target="5">0</span><span>+</span>
+              </div>
+              <p class="text-xs text-zinc-500 font-mono uppercase mt-1">Tech Mastered</p>
+            </div>
+            <div>
+              <div class="font-display text-3xl sm:text-4xl font-extrabold text-white flex items-center">
+                <span class="counter-val" data-target="100">0</span><span>%</span>
+              </div>
+              <p class="text-xs text-zinc-500 font-mono uppercase mt-1">Commitment</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Editorial Photo Frame (User's Cropped Photo) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <div class="editorial-photo relative w-full h-[500px] sm:h-[560px] bg-[#14141B] rounded-3xl overflow-hidden border border-[#23232E] shadow-2xl">
+              <!-- User Photo -->
+              <img src="user-photo.jpg" alt="Foto Andi Muhammad Hadi Pratama" class="w-full h-full object-cover object-center filter grayscale-[10%] contrast-110">
+
+              <!-- Dark Vignette Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-transparent to-black/30"></div>
+
+              <!-- Top Badge -->
+              <div class="absolute top-5 left-5 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-[#23232E] text-[11px] font-mono text-zinc-200 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#D4FF00]"></span>
+                <span>RPL SOFTWARE CRAFTER</span>
+              </div>
+
+              <!-- Bottom Floating Card -->
+              <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-[#14141B]/95 backdrop-blur-xl border border-[#23232E] space-y-2">
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="text-[#D4FF00] font-bold uppercase tracking-wider">ANDI M. HADI PRATAMA</span>
+                  <span class="text-zinc-500">INDONESIA 🇮🇩</span>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <div>
+                    <h3 class="font-display font-bold text-lg text-white">Junior Web Developer</h3>
+                    <p class="text-xs text-zinc-400 font-normal">HTML &bull; CSS &bull; JS &bull; Bootstrap &bull; AI</p>
+                  </div>
+                  <div class="w-10 h-10 rounded-xl bg-[#D4FF00] text-black flex items-center justify-center font-bold">
+                    <i data-lucide="code" class="w-5 h-5"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INFINITE MARQUEE TICKER (CREVO LAB AGENCY SIGNATURE)
+         ========================================================================== -->
+    <section class="py-6 bg-[#111116] border-y border-[#23232E] overflow-hidden">
+      <div class="marquee-container">
+        <div class="marquee-track flex items-center gap-10 text-sm font-mono tracking-widest uppercase font-semibold text-zinc-400">
+          <span class="flex items-center gap-3 text-white">✦ REKAYASA PERANGKAT LUNAK (RPL)</span>
+          <span class="text-[#D4FF00]">•</span>
+          <span class="flex items-center gap-3 text-[#D4FF00]">✦ HTML5 & CSS3 MODERN</span>
+          <span class="text-zinc-600">•</span>
+          <span class="flex items-center gap-3 text-white">✦ JAVASCRIPT ES6+ INTERAKTIF</span>
+          <span class="text-[#D4FF00]">•</span>
+          <span class="flex items-center gap-3 text-zinc-300">✦ BOOTSTRAP RESPONSIVE FRAMEWORK</span>
+          <span class="text-zinc-600">•</span>
+          <span class="flex items-center gap-3 text-[#D4FF00]">✦ ARTIFICIAL INTELLIGENCE EXPLORATION</span>
+          <span class="text-zinc-600">•</span>
+          <span class="flex items-center gap-3 text-white">✦ E-COMMERCE & E-REPORT SYSTEMS</span>
+          <span class="text-zinc-600">•</span>
+        </div>
+        <div class="marquee-track flex items-center gap-10 text-sm font-mono tracking-widest uppercase font-semibold text-zinc-400" aria-hidden="true">
+          <span class="flex items-center gap-3 text-white">✦ REKAYASA PERANGKAT LUNAK (RPL)</span>
+          <span class="text-[#D4FF00]">•</span>
+          <span class="flex items-center gap-3 text-[#D4FF00]">✦ HTML5 & CSS3 MODERN</span>
+          <span class="text-zinc-600">•</span>
+          <span class="flex items-center gap-3 text-white">✦ JAVASCRIPT ES6+ INTERAKTIF</span>
+          <span class="text-[#D4FF00]">•</span>
+          <span class="flex items-center gap-3 text-zinc-300">✦ BOOTSTRAP RESPONSIVE FRAMEWORK</span>
+          <span class="text-zinc-600">•</span>
+          <span class="flex items-center gap-3 text-[#D4FF00]">✦ ARTIFICIAL INTELLIGENCE EXPLORATION</span>
+          <span class="text-zinc-600">•</span>
+          <span class="flex items-center gap-3 text-white">✦ E-COMMERCE & E-REPORT SYSTEMS</span>
+          <span class="text-zinc-600">•</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         KEAHLIAN & TECH STACK (HTML, CSS, JS, BOOTSTRAP, AI)
+         ========================================================================== -->
+    <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-[#D4FF00] tracking-widest uppercase font-semibold">
+              // KEAHLIAN & TEKNOLOGI
+            </span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+              TECH STACK & CAPABILITIES
+            </h2>
+          </div>
+          <p class="text-zinc-400 max-w-md text-sm leading-relaxed">
+            Teknologi yang saya pelajari dan terapkan secara aktif dalam membangun website fungsional dan responsif.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Stack 01: HTML & CSS -->
+          <div class="crevo-card p-8 rounded-3xl flex flex-col justify-between space-y-8 group">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="font-display font-black text-3xl text-zinc-600 group-hover:text-[#D4FF00] transition-colors">01</span>
+                <div class="w-10 h-10 rounded-full bg-[#1A1A24] border border-[#23232E] flex items-center justify-center text-[#D4FF00] group-hover:bg-[#D4FF00] group-hover:text-black transition-all">
+                  <i data-lucide="file-code" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-[#D4FF00] transition-colors">
+                HTML5 & CSS3
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Menyusun struktur web semantik yang terorganisir rapi dan mendesain tata letak responsif menggunakan Flexbox, CSS Grid, serta transisi modern.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="tag-pill">Semantic HTML</span>
+                <span class="tag-pill">CSS Grid</span>
+                <span class="tag-pill">Flexbox</span>
+                <span class="tag-pill">Responsive</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[#23232E] flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white transition-colors">
+              <span>CORE FRONTEND</span>
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D4FF00]"></i>
+            </div>
+          </div>
+
+          <!-- Stack 02: JavaScript -->
+          <div class="crevo-card p-8 rounded-3xl flex flex-col justify-between space-y-8 group">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="font-display font-black text-3xl text-zinc-600 group-hover:text-[#D4FF00] transition-colors">02</span>
+                <div class="w-10 h-10 rounded-full bg-[#1A1A24] border border-[#23232E] flex items-center justify-center text-[#D4FF00] group-hover:bg-[#D4FF00] group-hover:text-black transition-all">
+                  <i data-lucide="code-2" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-[#D4FF00] transition-colors">
+                JavaScript (ES6+)
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Membuat antarmuka interaktif, manipulasi DOM, penanganan event dinamis, validasi formulir, serta pengolahan logika data di sisi klien.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="tag-pill">DOM Manipulation</span>
+                <span class="tag-pill">Event Handling</span>
+                <span class="tag-pill">ES6+ Syntax</span>
+                <span class="tag-pill">Async & Fetch</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[#23232E] flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white transition-colors">
+              <span>DYNAMIC LOGIC</span>
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D4FF00]"></i>
+            </div>
+          </div>
+
+          <!-- Stack 03: Bootstrap Framework -->
+          <div class="crevo-card p-8 rounded-3xl flex flex-col justify-between space-y-8 group">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="font-display font-black text-3xl text-zinc-600 group-hover:text-[#D4FF00] transition-colors">03</span>
+                <div class="w-10 h-10 rounded-full bg-[#1A1A24] border border-[#23232E] flex items-center justify-center text-[#D4FF00] group-hover:bg-[#D4FF00] group-hover:text-black transition-all">
+                  <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-[#D4FF00] transition-colors">
+                Bootstrap Framework
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Mempercepat pembuatan komponen UI yang konsisten, sistem grid 12-kolom, modal, navbar, kartu produk, dan tabel data yang mobile-friendly.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="tag-pill">Bootstrap 5</span>
+                <span class="tag-pill">Grid System</span>
+                <span class="tag-pill">UI Components</span>
+                <span class="tag-pill">Custom Utility</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[#23232E] flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white transition-colors">
+              <span>RESPONSIVE UI</span>
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D4FF00]"></i>
+            </div>
+          </div>
+
+          <!-- Stack 04: Artificial Intelligence (AI) -->
+          <div class="crevo-card p-8 rounded-3xl flex flex-col justify-between space-y-8 group">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="font-display font-black text-3xl text-zinc-600 group-hover:text-[#D4FF00] transition-colors">04</span>
+                <div class="w-10 h-10 rounded-full bg-[#1A1A24] border border-[#23232E] flex items-center justify-center text-[#D4FF00] group-hover:bg-[#D4FF00] group-hover:text-black transition-all">
+                  <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-[#D4FF00] transition-colors">
+                AI & Modern Workflow
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Memanfaatkan kecerdasan buatan (AI) untuk mempercepat alur kerja pengembangan, pembuatan prompt, optimasi logika kode, dan eksplorasi fitur pintar.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="tag-pill">Prompt Engineering</span>
+                <span class="tag-pill">AI Assistance</span>
+                <span class="tag-pill">Code Optimization</span>
+                <span class="tag-pill">Automation</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-[#23232E] flex items-center justify-between text-xs font-mono text-zinc-400 group-hover:text-white transition-colors">
+              <span>FUTURE READY</span>
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#D4FF00]"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Cinematic technology logo rail -->
+        <div class="tech-rail-wrap pt-2" data-reveal="up">
+          <div class="flex items-center justify-between gap-4 mb-5">
+            <span class="text-[10px] font-mono tracking-[.24em] text-zinc-500 uppercase">TOOLS I BUILD WITH</span>
+            <span class="text-[10px] font-mono text-[#D4FF00]">01 — 06</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div class="tech-logo-card"><span class="tech-mark html-mark">5</span><span>HTML5</span></div>
+            <div class="tech-logo-card"><span class="tech-mark css-mark">3</span><span>CSS3</span></div>
+            <div class="tech-logo-card"><span class="tech-mark js-mark">JS</span><span>JavaScript</span></div>
+            <div class="tech-logo-card"><span class="tech-mark bs-mark">B</span><span>Bootstrap</span></div>
+            <div class="tech-logo-card"><span class="tech-mark git-mark"><i data-lucide="git-branch"></i></span><span>Git & GitHub</span></div>
+            <div class="tech-logo-card"><span class="tech-mark ai-mark"><i data-lucide="brain-circuit"></i></span><span>AI Workflow</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LEARNING JOURNEY / EDUCATION TIMELINE
+         ========================================================================== -->
+    <section id="journey" class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none opacity-40 bg-grid-pattern"></div>
+      <div class="max-w-7xl mx-auto relative space-y-14">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-[#D4FF00] tracking-widest uppercase font-semibold">// LEARNING JOURNEY</span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">BUILDING MY <span class="text-[#D4FF00]">FOUNDATION.</span></h2>
+          </div>
+          <p class="text-zinc-400 max-w-md text-sm leading-relaxed">Perjalanan belajar saya di bidang Rekayasa Perangkat Lunak, dari memahami fondasi web hingga membangun proyek yang bisa digunakan.</p>
+        </div>
+        <div class="journey-layout grid grid-cols-1 lg:grid-cols-[.8fr_1.2fr] gap-10 lg:gap-16 items-start">
+          <div class="journey-intro crevo-card rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+            <div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-[#D4FF00]/10 blur-3xl"></div>
+            <span class="text-[10px] font-mono tracking-[.2em] text-[#D4FF00]">CURRENT CHAPTER</span>
+            <h3 class="font-display text-3xl font-extrabold text-white mt-5">SMK IDN<br><span class="text-[#D4FF00]">BOARDING SCHOOL</span></h3>
+            <p class="text-sm text-zinc-400 leading-relaxed mt-5">Siswa kelas X jurusan Rekayasa Perangkat Lunak (RPL), berfokus mengembangkan kemampuan web development dan membangun pengalaman melalui proyek.</p>
+            <div class="mt-8 pt-6 border-t border-[#23232E] flex items-center justify-between text-xs font-mono"><span class="text-zinc-500">FOCUS</span><span class="text-white">WEB DEVELOPMENT</span></div>
+          </div>
+          <div class="journey-track space-y-0">
+            <article class="journey-item"><span class="journey-node">01</span><div><span class="journey-kicker">THE FOUNDATION</span><h3>HTML & CSS</h3><p>Memahami struktur halaman, styling, layout, dan desain responsif sebagai fondasi pembuatan website.</p></div></article>
+            <article class="journey-item"><span class="journey-node">02</span><div><span class="journey-kicker">MAKING IT INTERACTIVE</span><h3>JavaScript</h3><p>Mempelajari DOM, event, logika interaksi, validasi form, dan fitur dinamis pada website.</p></div></article>
+            <article class="journey-item"><span class="journey-node">03</span><div><span class="journey-kicker">BUILDING FASTER</span><h3>Bootstrap & UI Components</h3><p>Menggunakan framework untuk membangun layout dan komponen antarmuka yang konsisten serta responsif.</p></div></article>
+            <article class="journey-item"><span class="journey-node journey-node-current"><i data-lucide="code-2"></i></span><div><span class="journey-kicker">CURRENTLY BUILDING</span><h3>Real Project Practice</h3><p>Mengembangkan proyek seperti Mbah Minar E-Commerce, E-Report, dan personal portfolio sambil terus memperdalam kemampuan.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PORTOFOLIO PROYEK (WEB PORTOFOLIO, E-COMMERCE, E-REPORT)
+         ========================================================================== -->
+    <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 bg-[#0D0D12] relative">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="space-y-3">
+            <span class="text-xs font-mono text-[#D4FF00] tracking-widest uppercase font-semibold">
+              // RECENT PROJECTS
+            </span>
+            <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+              KARYA & PROYEK UNGGULAN
+            </h2>
+          </div>
+
+          <!-- Category Filters -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold bg-lime text-black transition-all" data-filter="all">Semua Proyek</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white transition-all" data-filter="ecommerce">E-Commerce</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white transition-all" data-filter="report">E-Report</button>
+            <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white transition-all" data-filter="portfolio">Web Porto</button>
+          </div>
+        </div>
+
+        <!-- 3 Core Projects Specified by User (With Real Screenshots & Live Links) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Project 1: E-Commerce Mbah Minar -->
+          <div class="project-card crevo-card rounded-3xl overflow-hidden flex flex-col justify-between group" data-category="ecommerce">
+            <!-- Clickable Screenshot Header -->
+            <a href="https://andihadi923248-svg.github.io/E_Commerce_minar/" target="_blank" rel="noopener noreferrer" class="project-preview block relative h-64 sm:h-72 overflow-hidden border-b border-[#23232E] cursor-pointer bg-[#0A0A0C]" title="Klik untuk membuka demo E-Commerce Mbah Minar">
+              <!-- Real Project Screenshot -->
+              <img src="project-ecommerce.jpg" alt="Screenshot E-Commerce Mbah Minar" class="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-500">
+              
+              <!-- Subtle Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#14141B] via-transparent to-black/30"></div>
+              <div class="preview-caption"><span>EXPLORE PROJECT</span><i data-lucide="arrow-up-right"></i></div>
+
+              <!-- Top Floating Badge -->
+              <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-black/80 backdrop-blur-md text-white border border-[#23232E] flex items-center gap-1.5 shadow-lg">
+                  <span class="w-2 h-2 rounded-full bg-[#D4FF00] animate-pulse"></span>
+                  <span>MBAH MINAR STORE</span>
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-[#D4FF00] text-black font-bold flex items-center gap-1 shadow-lg">
+                  <span>LIVE DEMO</span>
+                  <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                </span>
+              </div>
+            </a>
+
+            <div class="p-7 space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-[#D4FF00]">F&B & CULINARY ORDERING</span>
+                <span class="text-zinc-500">PROYEK 01</span>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white">
+                <a href="https://andihadi923248-svg.github.io/E_Commerce_minar/" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4FF00] transition-colors flex items-center justify-between">
+                  <span>E-Commerce "Mbah Minar"</span>
+                  <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#D4FF00] opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                </a>
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Website pemesanan kuliner online khas Mbah Minar berbasis Bootstrap 5.3 & JavaScript. Dilengkapi katalog makanan & minuman (Nasi Goreng, Ayam Goreng, Soto Ayam, dll), modal keranjang belanja interaktif dengan badge counter, toggle Dark Mode/Light Mode instan, serta carousel slider promo dinamis.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="tag-pill">Bootstrap 5.3</span>
+                <span class="tag-pill">HTML5 & CSS3</span>
+                <span class="tag-pill">JavaScript DOM</span>
+                <span class="tag-pill">Dark Mode Switch</span>
+                <span class="tag-pill">Cart Modal</span>
+              </div>
+
+              <button type="button" class="case-study-trigger" data-case="mbah-minar"><i data-lucide="scan-eye"></i><span>Explore Case Study</span><i data-lucide="arrow-up-right" class="ml-auto"></i></button>
+
+              <!-- Action Links (Live Demo Button) -->
+              <div class="pt-5 border-t border-[#23232E] flex items-center justify-between">
+                <a href="https://andihadi923248-svg.github.io/E_Commerce_minar/" target="_blank" rel="noopener noreferrer" class="btn-crevo-primary px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-md">
+                  <span>Buka Website</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+                
+                <a href="https://github.com/andihadi923248-svg/E_Commerce_minar" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-[#23232E] transition-colors" title="Lihat Source Code GitHub">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: E-Report System -->
+          <div class="project-card crevo-card rounded-3xl overflow-hidden flex flex-col justify-between group" data-category="report">
+            <!-- Clickable Screenshot Header -->
+            <a href="https://andihadi923248-svg.github.io/E-Report-skl/" target="_blank" rel="noopener noreferrer" class="project-preview block relative h-64 sm:h-72 overflow-hidden border-b border-[#23232E] cursor-pointer bg-[#0A0A0C]" title="Klik untuk membuka demo E-Report">
+              <!-- Real Project Screenshot -->
+              <img src="project-ereport.jpg" alt="Screenshot E-Report System" class="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-500">
+              
+              <!-- Subtle Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#14141B] via-transparent to-black/30"></div>
+              <div class="preview-caption"><span>EXPLORE PROJECT</span><i data-lucide="arrow-up-right"></i></div>
+
+              <!-- Top Floating Badge -->
+              <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-black/80 backdrop-blur-md text-white border border-[#23232E] flex items-center gap-1.5 shadow-lg">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <span>E-REPORT SYSTEM</span>
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-cyan-400 text-black font-bold flex items-center gap-1 shadow-lg">
+                  <span>LIVE DEMO</span>
+                  <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                </span>
+              </div>
+            </a>
+
+            <div class="p-7 space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-cyan-400">DIGITAL COMPLAINT & TRACKING</span>
+                <span class="text-zinc-500">PROYEK 02</span>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white">
+                <a href="https://andihadi923248-svg.github.io/E-Report-skl/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors flex items-center justify-between">
+                  <span>E-Report Management System</span>
+                  <i data-lucide="arrow-up-right" class="w-5 h-5 text-cyan-400 opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                </a>
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Aplikasi sistem pelaporan dan pengaduan digital terintegrasi multi-halaman. Dilengkapi form pengajuan keluhan (*create-report* dengan upload foto & kategori), pelacakan progres tiket real-time (*track-report*), riwayat pengaduan (*history*), panduan (*how-to-use*), serta dashboard statistik keluhan.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="tag-pill">Bootstrap 5.3</span>
+                <span class="tag-pill">Multi-Page UI</span>
+                <span class="tag-pill">Track Report</span>
+                <span class="tag-pill">Form Validation</span>
+                <span class="tag-pill">Data Tables</span>
+              </div>
+
+              <button type="button" class="case-study-trigger" data-case="e-report"><i data-lucide="scan-eye"></i><span>Explore Case Study</span><i data-lucide="arrow-up-right" class="ml-auto"></i></button>
+
+              <!-- Action Links (Live Demo Button) -->
+              <div class="pt-5 border-t border-[#23232E] flex items-center justify-between">
+                <a href="https://andihadi923248-svg.github.io/E-Report-skl/" target="_blank" rel="noopener noreferrer" class="btn-crevo-primary px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-md">
+                  <span>Buka Website</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+
+                <a href="https://github.com/andihadi923248-svg/E-Report-skl" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white border border-[#23232E] transition-colors" title="Lihat Source Code GitHub">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Web Portofolio Pribadi -->
+          <div class="project-card crevo-card rounded-3xl overflow-hidden flex flex-col justify-between group" data-category="portfolio">
+            <!-- Clickable Screenshot Header -->
+            <a href="#hero" class="project-preview block relative h-64 sm:h-72 overflow-hidden border-b border-[#23232E] cursor-pointer bg-[#0A0A0C]" title="Halaman portofolio saat ini">
+              <!-- Real Project Screenshot -->
+              <img src="project-portfolio.jpg" alt="Screenshot Web Portofolio Andi" class="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 group-hover:brightness-105 transition-all duration-500">
+              
+              <!-- Subtle Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#14141B] via-transparent to-black/30"></div>
+              <div class="preview-caption"><span>EXPLORE PROJECT</span><i data-lucide="arrow-up-right"></i></div>
+
+              <!-- Top Floating Badge -->
+              <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-black/80 backdrop-blur-md text-white border border-[#23232E] flex items-center gap-1.5 shadow-lg">
+                  <span class="w-2 h-2 rounded-full bg-[#D4FF00]"></span>
+                  <span>ANDI.DEV PORTFOLIO</span>
+                </span>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-mono bg-[#D4FF00]/20 text-[#D4FF00] border border-[#D4FF00]/40 font-bold flex items-center gap-1 shadow-lg">
+                  <span>LIVE SITE</span>
+                </span>
+              </div>
+            </a>
+
+            <div class="p-7 space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-[#D4FF00]">PERSONAL WEB BRANDING</span>
+                <span class="text-zinc-500">PROYEK 03</span>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white">
+                <a href="#hero" class="hover:text-[#D4FF00] transition-colors flex items-center justify-between">
+                  <span>Personal Web Portofolio</span>
+                  <i data-lucide="arrow-up" class="w-5 h-5 text-[#D4FF00] opacity-80 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all"></i>
+                </a>
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Website portofolio yang sedang Anda jelajahi ini, dirancang dengan konsep agensi kreatif Crevo Lab, dark mode kontras tinggi, animasi tipografi dinamis, serta navigasi responsif untuk merepresentasikan keahlian siswa RPL secara profesional.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="tag-pill">Modern HTML5</span>
+                <span class="tag-pill">Tailwind & CSS</span>
+                <span class="tag-pill">JavaScript ES6</span>
+                <span class="tag-pill">Responsive UI</span>
+              </div>
+
+              <button type="button" class="case-study-trigger" data-case="portfolio"><i data-lucide="scan-eye"></i><span>Explore Case Study</span><i data-lucide="arrow-up-right" class="ml-auto"></i></button>
+              <div class="pt-5 border-t border-[#23232E] flex items-center justify-between">
+                <a href="#hero" class="btn-crevo-secondary px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider flex items-center gap-1.5">
+                  <span>Halaman Ini</span>
+                  <i data-lucide="arrow-up" class="w-3.5 h-3.5 text-[#D4FF00]"></i>
+                </a>
+                <span class="text-xs text-zinc-500 font-mono">Current Page</span>
+              </div>
+            </div>
+          </div>
+
+            <div class="p-7 space-y-4">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-[#D4FF00]">PERSONAL WEB BRANDING</span>
+                <span class="text-zinc-500">PROYEK 03</span>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-[#D4FF00] transition-colors">
+                Personal Web Portofolio
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Website portofolio yang sedang Anda jelajahi ini, dirancang dengan konsep agensi kreatif Crevo Lab, dark mode kontras tinggi, animasi tipografi dinamis, serta navigasi responsif untuk merepresentasikan keahlian siswa RPL secara profesional.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="tag-pill">Modern HTML5</span>
+                <span class="tag-pill">Tailwind & CSS</span>
+                <span class="tag-pill">JavaScript ES6</span>
+                <span class="tag-pill">Responsive UI</span>
+              </div>
+
+              <div class="pt-5 border-t border-[#23232E] flex items-center justify-between">
+                <a href="#hero" class="btn-crevo-secondary px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider flex items-center gap-1.5">
+                  <span>Halaman Ini</span>
+                  <i data-lucide="arrow-up" class="w-3.5 h-3.5 text-[#D4FF00]"></i>
+                </a>
+                <span class="text-xs text-zinc-500 font-mono">Current Page</span>
+              </div>
+            </div>
+          </div>
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-[#D4FF00]">PERSONAL WEB BRANDING</span>
+                <span class="text-zinc-500">PROYEK 03</span>
+              </div>
+
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-[#D4FF00] transition-colors">
+                Personal Web Portofolio
+              </h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">
+                Website portofolio yang sedang Anda jelajahi ini, dirancang dengan konsep agensi kreatif Crevo Lab, dark mode kontras tinggi, animasi tipografi, dan navigasi responsif.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="tag-pill">Modern HTML5</span>
+                <span class="tag-pill">Tailwind & CSS</span>
+                <span class="tag-pill">JavaScript ES6</span>
+                <span class="tag-pill">Clean UI</span>
+              </div>
+
+              <div class="pt-5 border-t border-[#23232E] flex items-center justify-between">
+                <a href="#hero" class="text-xs font-bold text-[#D4FF00] hover:underline flex items-center gap-1.5 font-mono">
+                  <span>SEDANG DILIHAT</span>
+                  <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                </a>
+                <span class="text-xs text-zinc-500 font-mono">Current Page</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         OUR PROCESS (01 TO 04 STEP TIMELINE)
+         ========================================================================== -->
+    <section id="process" class="py-24 px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="text-center space-y-3">
+          <span class="text-xs font-mono text-[#D4FF00] tracking-widest uppercase font-semibold">
+            // ALUR PENGEMBANGAN
+          </span>
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            METODOLOGI KERJA RPL
+          </h2>
+          <p class="text-zinc-400 max-w-xl mx-auto text-sm">
+            Tahapan terstruktur yang saya terapkan dalam setiap proyek software development dari perencanaan hingga pengujian.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          
+          <div class="crevo-card p-7 rounded-3xl space-y-4">
+            <span class="font-display font-black text-4xl text-[#D4FF00]">01</span>
+            <h3 class="font-display font-bold text-lg text-white">Analisis Kebutuhan</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Mengidentifikasi tujuan website, fitur yang dibutuhkan pengguna, serta alur data aplikasi (seperti modul keranjang atau formulir laporan).
+            </p>
+          </div>
+
+          <div class="crevo-card p-7 rounded-3xl space-y-4">
+            <span class="font-display font-black text-4xl text-zinc-600">02</span>
+            <h3 class="font-display font-bold text-lg text-white">Perancangan UI & Wireframe</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Membuat sketsa tata letak, memilih komponen Bootstrap yang pas, dan menyusun hierarki visual yang nyaman di mata pengguna.
+            </p>
+          </div>
+
+          <div class="crevo-card p-7 rounded-3xl space-y-4">
+            <span class="font-display font-black text-4xl text-zinc-600">03</span>
+            <h3 class="font-display font-bold text-lg text-white">Koding & Integrasi AI</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Menulis kode HTML, CSS, dan JavaScript secara bersih (*clean code*), dibantu AI untuk optimalisasi efisiensi dan pengecekan bug.
+            </p>
+          </div>
+
+          <div class="crevo-card p-7 rounded-3xl space-y-4">
+            <span class="font-display font-black text-4xl text-[#D4FF00]">04</span>
+            <h3 class="font-display font-bold text-lg text-white">Testing & Deployment</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Menguji responsivitas di layar smartphone maupun PC, memastikan seluruh tombol berfungsi normal, lalu meluncurkan ke hosting.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT ANDI MUHAMMAD HADI PRATAMA
+         ========================================================================== -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 bg-[#0D0D12] relative">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Photo Column -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              <div class="editorial-photo relative w-full h-[470px] bg-[#14141B] rounded-3xl overflow-hidden border border-[#23232E]">
+                <img src="user-photo.jpg" alt="Andi Muhammad Hadi Pratama" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] via-transparent to-transparent"></div>
+                
+                <div class="absolute bottom-6 left-6 right-6">
+                  <span class="tag-pill text-[10px] text-[#D4FF00] border-[#D4FF00]/30 bg-[#D4FF00]/10">
+                    REKAYASA PERANGKAT LUNAK (RPL)
+                  </span>
+                  <h3 class="font-display font-bold text-xl text-white mt-2">Andi Muhammad Hadi Pratama</h3>
+                  <p class="text-xs text-zinc-400 font-mono mt-0.5">Indonesia 🇮🇩 &bull; Web Developer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative Bio -->
+          <div class="lg:col-span-7 space-y-7">
+            
+            <div class="space-y-3">
+              <span class="text-xs font-mono text-[#D4FF00] tracking-widest uppercase font-semibold">
+                // PROFIL PENGEMBANG
+              </span>
+              <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                BELAJAR DENGAN DISIPLIN, BERKARYA DENGAN KODE.
+              </h2>
+            </div>
+
+            <div class="space-y-4 text-zinc-300 text-sm sm:text-base leading-relaxed">
+              <p>
+                Halo! Saya <strong>Andi Muhammad Hadi Pratama</strong>, seorang siswa dan pengembang dari jurusan <strong>Rekayasa Perangkat Lunak (RPL)</strong>. Saya memiliki ketertarikan mendalam dalam dunia pengembangan web dan teknologi digital.
+              </p>
+              <p>
+                Sejauh ini, saya telah mempelajari dan mempraktikkan pembuatan website menggunakan <strong>HTML, CSS, JavaScript, dan Bootstrap</strong>, serta memanfaatkan kecerdasan buatan (<strong>AI</strong>) sebagai akselerator dalam memahami konsep koding dan merancang solusi perangkat lunak yang efektif.
+              </p>
+              <p>
+                Melalui proyek-proyek seperti <strong>E-Commerce</strong>, <strong>E-Report</strong>, dan <strong>Web Portofolio</strong> ini, saya terus mengasah kemampuan teknis untuk siap berkolaborasi dalam proyek riil dan industri teknologi.
+              </p>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="pt-4 border-t border-[#23232E] space-y-3">
+              <span class="text-xs font-mono text-zinc-500 uppercase tracking-wider block">TECH STACK UTAMA</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag-pill text-white bg-white/5 font-bold">HTML5</span>
+                <span class="tag-pill text-white bg-white/5 font-bold">CSS3</span>
+                <span class="tag-pill text-white bg-white/5 font-bold">JavaScript (ES6+)</span>
+                <span class="tag-pill text-white bg-white/5 font-bold">Bootstrap 5</span>
+                <span class="tag-pill text-[#D4FF00] bg-[#D4FF00]/10 border-[#D4FF00]/30 font-bold">AI Workflow</span>
+                <span class="tag-pill text-zinc-400 bg-white/5">Git & GitHub</span>
+                <span class="tag-pill text-zinc-400 bg-white/5">Responsive Web</span>
+              </div>
+            </div>
+
+            <!-- Core Pillars -->
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-2xl bg-[#14141B] border border-[#23232E]">
+                <h4 class="text-xs font-mono text-[#D4FF00] uppercase font-bold">JURUSAN RPL</h4>
+                <p class="text-xs text-zinc-400 mt-1">Fondasi logika pemrograman yang kuat dan terarah.</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-[#14141B] border border-[#23232E]">
+                <h4 class="text-xs font-mono text-[#D4FF00] uppercase font-bold">SEMANGAT BELAJAR</h4>
+                <p class="text-xs text-zinc-400 mt-1">Selalu antusias memperdalam teknologi dan AI baru.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT SECTION (HUBUNGI ANDI)
+         ========================================================================== -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-[#0D0D12] relative">
+      <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="text-center space-y-4">
+          <span class="text-xs font-mono text-[#D4FF00] tracking-widest uppercase font-semibold">
+            // HUBUNGI SAYA
+          </span>
+          <h2 class="font-display text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            TERTARIK UNTUK BERKOLABORASI? <br />
+            <span class="text-[#D4FF00]">MARI TERHUBUNG.</span>
+          </h2>
+          <p class="text-zinc-400 max-w-xl mx-auto text-sm">
+            Terbuka untuk diskusi proyek web, sharing teknologi, atau peluang kolaborasi lainnya. Silakan hubungi saya melalui formulir atau kontak di bawah ini.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Contact Info Column -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="crevo-card p-8 rounded-3xl space-y-6">
+              <h3 class="font-display font-bold text-xl text-white">Kontak Langsung</h3>
+              
+              <div class="space-y-4 text-sm">
+                <!-- Copyable Email Card -->
+                <div class="p-4 rounded-2xl bg-[#0A0A0C] border border-[#23232E] flex items-center justify-between">
+                  <div>
+                    <span class="text-[11px] text-zinc-500 font-mono block">EMAIL RESMI</span>
+                    <span class="text-sm font-semibold text-white">andi.hadi923248@gmail.com</span>
+                  </div>
+                  <button class="copy-email-btn p-2.5 rounded-xl bg-white/5 hover:bg-[#D4FF00] hover:text-black text-zinc-300 transition-colors" data-email="andi.hadi923248@gmail.com" title="Salin Email">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-[#0A0A0C] border border-[#23232E] flex items-center gap-4">
+                  <div class="p-2.5 rounded-xl bg-[#D4FF00]/10 text-[#D4FF00]">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-[11px] text-zinc-500 font-mono block">DOMISILI</span>
+                    <span class="text-sm font-semibold text-white">Indonesia 🇮🇩</span>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-[#0A0A0C] border border-[#23232E] flex items-center gap-4">
+                  <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-[11px] text-zinc-500 font-mono block">STATUS SAAT INI</span>
+                    <span class="text-sm font-semibold text-emerald-400">Siswa RPL & Terbuka untuk Kolaborasi</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="pt-4 border-t border-[#23232E] space-y-3">
+                <span class="text-xs text-zinc-500 font-mono uppercase tracking-wider block">PROFIL MEDIA SOSIAL</span>
+                <div class="social-links flex flex-wrap items-center gap-3">
+                  <a href="https://github.com/andihadi923248-svg" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="Buka profil GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.76 2.02 3.45 1.53.1-.72.39-1.22.7-1.5-2.48-.28-5.09-1.24-5.09-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.61 5.24-5.1 5.52.4.35.75 1.03.75 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/></svg>
+                    <span>GitHub</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/hadi-pratama-0896bb44a/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="Buka profil LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.9H4.96V9.33h2.97v9.57ZM6.45 8.02a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm12.45 10.88h-2.96v-4.65c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.64V9.33h2.84v1.31h.04c.4-.75 1.36-1.55 2.8-1.55 3 0 3.58 1.98 3.58 4.56v5.25Z"/></svg>
+                    <span>LinkedIn</span>
+                  </a>
+                  <a href="https://www.instagram.com/haadyywp_39/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" aria-label="Buka profil Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm4.2 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.2-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+                    <span>Instagram</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Contact Form Column -->
+          <div class="lg:col-span-7">
+            <div class="crevo-card p-8 sm:p-10 rounded-3xl space-y-6">
+              <h3 class="font-display font-bold text-xl text-white">Kirimkan Pesan</h3>
+              
+              <form id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="space-y-1.5">
+                    <label for="contact-name" class="text-xs font-mono text-zinc-400">NAMA ANDA</label>
+                    <input type="text" id="contact-name" placeholder="Nama Lengkap" required class="w-full px-4 py-3.5 rounded-xl bg-[#0A0A0C] border border-[#23232E] text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-[#D4FF00]">
+                  </div>
+                  <div class="space-y-1.5">
+                    <label for="contact-email" class="text-xs font-mono text-zinc-400">EMAIL ANDA</label>
+                    <input type="email" id="contact-email" placeholder="nama@email.com" required class="w-full px-4 py-3.5 rounded-xl bg-[#0A0A0C] border border-[#23232E] text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-[#D4FF00]">
+                  </div>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label for="contact-subject" class="text-xs font-mono text-zinc-400">SUBJEK PESAN</label>
+                  <input type="text" id="contact-subject" placeholder="Diskusi Proyek Web / Kolaborasi" required class="w-full px-4 py-3.5 rounded-xl bg-[#0A0A0C] border border-[#23232E] text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-[#D4FF00]">
+                </div>
+
+                <div class="space-y-1.5">
+                  <label for="contact-message" class="text-xs font-mono text-zinc-400">PESAN</label>
+                  <textarea id="contact-message" rows="4" placeholder="Tuliskan pesan atau hal yang ingin Anda bicarakan..." required class="w-full px-4 py-3.5 rounded-xl bg-[#0A0A0C] border border-[#23232E] text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-[#D4FF00]"></textarea>
+                </div>
+
+                <button type="submit" class="btn-crevo-primary w-full py-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>KIRIM PESAN SEKARANG</span>
+                </button>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CASE STUDY MODAL -->
+    <div id="case-study-modal" class="case-modal" aria-hidden="true">
+      <div class="case-modal-backdrop" data-close-case></div>
+      <article class="case-modal-panel" role="dialog" aria-modal="true" aria-labelledby="case-modal-title">
+        <button class="case-modal-close" type="button" aria-label="Tutup detail proyek" data-close-case><i data-lucide="x"></i></button>
+        <span class="case-modal-kicker" id="case-modal-kicker">PROJECT CASE STUDY</span>
+        <h2 id="case-modal-title" class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-3"></h2>
+        <p id="case-modal-summary" class="text-sm text-zinc-400 leading-relaxed mt-4"></p>
+        <div class="case-modal-grid mt-8">
+          <div><span class="case-label">CHALLENGE</span><p id="case-modal-challenge"></p></div>
+          <div><span class="case-label">APPROACH</span><p id="case-modal-approach"></p></div>
+          <div><span class="case-label">KEY FEATURES</span><p id="case-modal-features"></p></div>
+          <div><span class="case-label">TECHNOLOGY</span><p id="case-modal-tech"></p></div>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-8"><a id="case-modal-live" class="btn-crevo-primary px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2" target="_blank" rel="noopener noreferrer">Live Demo <i data-lucide="arrow-up-right"></i></a><a id="case-modal-source" class="btn-crevo-secondary px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2" target="_blank" rel="noopener noreferrer">Source Code <i data-lucide="github"></i></a></div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER (CREVO LAB AGENCY MINIMALIST FOOTER)
+       ========================================================================== -->
+  <footer class="border-t border-[#23232E] bg-[#070709] py-14 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-10">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <span class="font-display font-extrabold text-2xl text-white">
+            HADI<span class="text-[#D4FF00]">.DEV</span>
+          </span>
+          <p class="text-xs text-zinc-500 mt-1 max-w-md">
+            Portofolio Resmi Andi Muhammad Hadi Pratama &bull; Rekayasa Perangkat Lunak (RPL).
+          </p>
+        </div>
+
+        <div class="flex items-center gap-6 text-xs text-zinc-400 font-mono">
+          <a href="#hero" class="hover:text-[#D4FF00] transition-colors">Beranda</a>
+          <a href="#skills" class="hover:text-[#D4FF00] transition-colors">Keahlian</a>
+          <a href="#projects" class="hover:text-[#D4FF00] transition-colors">Proyek</a>
+          <a href="#journey" class="hover:text-[#D4FF00] transition-colors">Journey</a>
+          <a href="#process" class="hover:text-[#D4FF00] transition-colors">Alur Kerja</a>
+          <a href="#about" class="hover:text-[#D4FF00] transition-colors">Tentang</a>
+          <a href="#contact" class="hover:text-[#D4FF00] transition-colors">Kontak</a>
+        </div>
+      </div>
+
+      <div class="border-t border-[#23232E] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-mono">
+        <p>© 2026 Andi Muhammad Hadi Pratama. All rights reserved.</p>
+        <p class="flex items-center gap-2">
+          <span>Aesthetic:</span>
+          <span class="text-white">Crevo Lab Design</span>
+          <span>&bull;</span>
+          <span class="text-[#D4FF00]">RPL Software Engineering</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
