@@ -383,3 +383,89 @@ function initScrollTopButton() {
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  initExactBlackhole();
+});
+
+function initExactBlackhole() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const layer = document.createElement('div');
+  layer.className = 'bh-playground-layer';
+
+  // Jumlah partikel kosmik background
+  const particles = [];
+  const totalParticles = 40;
+
+  for (let i = 0; i < totalParticles; i++) {
+    const p = document.createElement('div');
+    p.className = 'bh-space-particle';
+    p.x = Math.random() * window.innerWidth;
+    p.y = Math.random() * window.innerHeight;
+    
+    // Kombinasi warna Acid Lime dan Cyan tipis sesuai gambar
+    if (i % 4 === 0) {
+      p.style.backgroundColor = '#00F0FF';
+    }
+
+    p.style.left = p.x + 'px';
+    p.style.top = p.y + 'px';
+    layer.appendChild(p);
+    particles.push(p);
+  }
+
+  const coreDot = document.createElement('div');
+  coreDot.className = 'bh-core-dot';
+
+  const ring = document.createElement('div');
+  ring.className = 'bh-accretion-ring';
+
+  document.body.appendChild(layer);
+  document.body.appendChild(coreDot);
+  document.body.appendChild(ring);
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX = mouseX;
+  let ringY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    coreDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  });
+
+  // Fungsi fisika tarikan gravitasi blackhole yang mulus
+  function updatePhysics() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+
+    particles.forEach(p => {
+      let dx = mouseX - p.x;
+      let dy = mouseY - p.y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+
+      // Tarik partikel ke arah kursor jika berada dalam radius gravitasi
+      if (dist < 320 && dist > 5) {
+        p.x += dx * 0.05;
+        p.y += dy * 0.05;
+      } else if (dist <= 5) {
+        // Respawn partikel baru jika sudah masuk ke pusat inti
+        p.x = Math.random() * window.innerWidth;
+        p.y = Math.random() * window.innerHeight;
+      } else {
+        p.x += (Math.random() - 0.5) * 1.5;
+        p.y += (Math.random() - 0.5) * 1.5;
+      }
+
+      p.style.left = p.x + 'px';
+      p.style.top = p.y + 'px';
+    });
+
+    requestAnimationFrame(updatePhysics);
+  }
+
+  updatePhysics();
+}
